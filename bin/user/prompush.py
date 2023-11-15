@@ -260,7 +260,7 @@ class PromPushThread(weewx.restx.RESTThread):
         # post the weather stats to the prometheus push gw
         pushgw_url = 'http://' + self.host + ":" + self.port + "/metrics/job/" + self.job
 
-        if self.instance is not "":
+        if self.instance != "":
             pushgw_url += "/instance/" + self.instance
 
         loginfo("pushgw url: %s" % pushgw_url)
