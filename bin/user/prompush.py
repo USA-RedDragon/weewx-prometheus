@@ -164,7 +164,7 @@ weather_metrics = {
         {'name':    'weewx_loop_tx_battery_status',               'type': 'gauge'}
 }
 
-__version__ = '1.1.3'
+__version__ = '1.1.4'
 
 import weewx
 import weewx.restx
