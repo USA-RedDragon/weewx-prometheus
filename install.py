@@ -1,27 +1,18 @@
 #!/usr/bin/env python
-# -*- coding: utf-8 -*-
 
-"""
-setup for weewx prometheus pushgateway pusher
-"""
+from weecfg.extension import ExtensionInstaller
 
 __title__ = 'PromPush'
-__version__ = '1.1.2'
+__version__ = '1.1.3'
 __author__ = 'Tom Mitchell <tom@tom.org>'
 __license__ = 'Apache License, Version 2.0'
 
-""" props to steve ulrich for the original version of this!!"""
-
-import setup
 
 def loader():
-    """install PromPush extension"""
     return WeewxPromPushInstaller()
 
 
-class WeewxPromPushInstaller(setup.ExtensionInstaller):
-    """installs weewx PromPush extension"""
-
+class WeewxPromPushInstaller(ExtensionInstaller):
     def __init__(self):
         super(WeewxPromPushInstaller, self).__init__(
             version=__version__,
@@ -30,6 +21,7 @@ class WeewxPromPushInstaller(setup.ExtensionInstaller):
             author='Tom Mitchell',
             author_email='tom@tom.org',
             restful_services='user.prompush.PromPush',
+            files=[('bin/user', ['bin/user/prompush.py'])],
             config={
                 'StdRESTful': {
                     'PromPush': {
@@ -40,5 +32,4 @@ class WeewxPromPushInstaller(setup.ExtensionInstaller):
                     }
                 }
             },
-            files=[('bin/user', ['bin/user/prompush.py'])]
         )

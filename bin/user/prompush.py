@@ -164,7 +164,7 @@ weather_metrics = {
         {'name':    'weewx_loop_tx_battery_status',               'type': 'gauge'}
 }
 
-__version__ = '1.1.0'
+__version__ = '1.1.3'
 
 import weewx
 import weewx.restx
@@ -254,6 +254,7 @@ class PromPushThread(weewx.restx.RESTThread):
         self.job = job
         self.instance = instance
         self.skip_post = weeutil.weeutil.to_bool(skip_post)
+        loginfo("prompush thread initialized")
 
     def post_metrics(self, data):
         # post the weather stats to the prometheus push gw
@@ -261,6 +262,8 @@ class PromPushThread(weewx.restx.RESTThread):
 
         if self.instance is not "":
             pushgw_url += "/instance/" + self.instance
+
+        loginfo("pushgw url: %s" % pushgw_url)
 
         try:
             _res = requests.post(url=pushgw_url,
@@ -280,6 +283,7 @@ class PromPushThread(weewx.restx.RESTThread):
 
 
     def process_record(self, record, dbm):
+        loginfo("processing record")
         _ = dbm
 
         record_data = ''
@@ -301,7 +305,7 @@ class PromPushThread(weewx.restx.RESTThread):
                 else:
                     if key != 'type':
                         loginfo("missing field [%s] in defs" % (key))
-
+        loginfo("record data: %s" % record_data)
         self.post_metrics(record_data)
 
 
