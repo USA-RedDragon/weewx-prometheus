@@ -278,7 +278,7 @@ class PromPushThread(weewx.restx.RESTThread):
                 logerr("pushgw post error: %s" % _res.text)
                 return
 
-        except requests.ConnectionError, e:
+        except (requests.ConnectionError, Exception) as e:
             logerr("pushgw post error: %s" % e.message)
 
 
