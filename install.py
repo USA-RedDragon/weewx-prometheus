@@ -3,7 +3,7 @@
 from weecfg.extension import ExtensionInstaller
 
 __title__ = 'PromPush'
-__version__ = '1.1.6'
+__version__ = '1.1.7'
 __author__ = 'Tom Mitchell <tom@tom.org>'
 __license__ = 'Apache License, Version 2.0'
 
