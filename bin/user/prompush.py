@@ -161,7 +161,27 @@ weather_metrics = {
     'leafWet4':
         {'name':    'weewx_loop_leaf_wet_4',                      'type': 'gauge'},
     'txBatteryStatus':
-        {'name':    'weewx_loop_tx_battery_status',               'type': 'gauge'}
+        {'name':    'weewx_loop_tx_battery_status',               'type': 'gauge'},
+    'outTempBatteryStatus':
+        {'name':    'weewx_loop_outside_temp_battery_status',     'type': 'gauge'},
+    'outRSSI':
+        {'name':    'weewx_loop_outside_rssi',                    'type': 'gauge'},
+    'outSNR':
+        {'name':    'weewx_loop_outside_snr',                     'type': 'gauge'},
+    'outNoise':
+        {'name':    'weewx_loop_outside_noise',                   'type': 'gauge'},
+    'frostpoint':
+        {'name':    'weewx_loop_frostpoint_degrees_f',            'type': 'gauge'},
+    'co2':
+        {'name':    'weewx_loop_co2_ppm',                         'type': 'gauge'},
+    'tvoc':
+        {'name':    'weewx_loop_tvoc_ppb',                        'type': 'gauge'},
+    'pm1_0':
+        {'name':    'weewx_loop_pm1_0_ug_m3',                     'type': 'gauge'},
+    'pm2_5':
+        {'name':    'weewx_loop_pm2_5_ug_m3',                     'type': 'gauge'},
+    'ET':
+        {'name':    'weewx_loop_evapotranspiration',              'type': 'gauge'},
 }
 
 __version__ = '1.1.8'
