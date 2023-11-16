@@ -184,7 +184,7 @@ weather_metrics = {
         {'name':    'weewx_loop_evapotranspiration',              'type': 'gauge'},
 }
 
-__version__ = '1.1.8'
+__version__ = '1.1.9'
 
 import weewx
 import weewx.restx
